@@ -17,7 +17,7 @@ const ForgotPassword = () => {
     setLoading(true);
     try {
       // Send email verification request
-      await axios.post("http://localhost:3000/api/check-email-otp", { email });
+      await axios.post("https://tech-pause-on.onrender.com/api/check-email-otp", { email });
       toast.success("Verification email sent!");
       setStep(2); // Move to OTP verification step
     } catch (error) {

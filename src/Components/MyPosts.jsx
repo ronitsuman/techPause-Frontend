@@ -27,7 +27,7 @@ const MyPosts = ({ onContentChange, currentContent }) => {
 
             setLoading(true);
             try {
-                const response = await axios.get(`http://localhost:3000/api/blogs/getblog/${authorId}`);
+                const response = await axios.get(`https://tech-pause-on.onrender.com/api/blogs/getblog/${authorId}`);
                 console.log("API Response:", response.data);
 
                 if (response.data?.newPerson?.createdBlogs) {
@@ -38,7 +38,7 @@ const MyPosts = ({ onContentChange, currentContent }) => {
                     const counts = {};
                     for (let post of blogs) {
                         try {
-                            const countRes = await axios.get(`http://localhost:3000/api/comments/comments/count/${post._id}`);
+                            const countRes = await axios.get(`https://tech-pause-on.onrender.com/api/comments/comments/count/${post._id}`);
                             counts[post._id] = countRes.data.count || 0;
                         } catch (err) {
                             console.error(`Error fetching comments for ${post._id}:`, err);
@@ -70,7 +70,7 @@ const MyPosts = ({ onContentChange, currentContent }) => {
         try {
             const updatedPost = { ...selectedPost, title: editedTitle, content: editedContent };
 
-            await axios.patch(`http://localhost:3000/api/blogs/updateblog/${selectedPost._id}`, updatedPost);
+            await axios.patch(`https://tech-pause-on.onrender.com/api/blogs/updateblog/${selectedPost._id}`, updatedPost);
 
             setPosts((prev) =>
                 prev.map((post) => (post._id === selectedPost._id ? updatedPost : post))

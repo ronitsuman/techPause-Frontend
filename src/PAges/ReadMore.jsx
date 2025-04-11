@@ -17,7 +17,7 @@ const ReadMore = () => {
         const fetchPost = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/api/blogs/getSingleBlog/${id}`
+                    `https://tech-pause-on.onrender.com/api/blogs/getSingleBlog/${id}`
                 );
                 setPost(response.data.blog);
                 setComments(response.data.blog.comments || []); // Pehle se existing comments load karein
@@ -43,7 +43,7 @@ const ReadMore = () => {
 
         try {
             const response = await axios.post(
-                `http://localhost:3000/api/comments/addComment/${userId}/${id}`,
+                `https://tech-pause-on.onrender.com/api/comments/addComment/${userId}/${id}`,
                 {
                     comment: newComment,
                 }

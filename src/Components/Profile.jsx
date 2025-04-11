@@ -34,7 +34,7 @@ function Profile() {
         setLoading(true); // ✅ Animation start 
 
         try {
-            const res = await axios.post(`http://localhost:3000/upload/profile/${userId}`, formData, {
+            const res = await axios.post(`https://tech-pause-on.onrender.com/upload/profile/${userId}`, formData, {
                 headers: { "Content-Type": "multipart/form-data" }
             });
 

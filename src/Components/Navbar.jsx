@@ -24,7 +24,7 @@ const Navbar = () => {
             return;
         }
 
-        // ✅ Filter logic
+        //  Filter logic
         const filtered = blogs.filter(blog => 
             (blog?.user?._id?.toString() === userId?.toString() || blog?.user?.toString() === userId?.toString()) &&
             blog.title.toLowerCase().includes(searchQuery.toLowerCase())
